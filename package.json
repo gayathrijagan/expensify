@@ -5,12 +5,11 @@
   "author": "Gayathri Jahan Mohan",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public/",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
     "start": "node server/server.js",
-    "heroku-postbuild": "npm run build:prod" 
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "@babel/core": "^7.8.3",
@@ -21,7 +20,6 @@
     "css-loader": "^3.4.2",
     "express": "^4.17.1",
     "extract-text-webpack-plugin": "^3.0.2",
-    "live-server": "^1.2.1",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
@@ -38,7 +36,9 @@
     "uuid": "^7.0.2",
     "validator": "^12.1.0",
     "webpack": "^3.1.0",
-    "webpack-dev-server": "^2.5.1",
     "wrappy": "^1.0.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.5.1"
   }
 }
