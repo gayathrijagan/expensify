@@ -1,6 +1,6 @@
 import database from '../firebase/firebase';
 
-const addExpense = (expense) => ({
+export const addExpense = (expense) => ({
     type: 'ADD_EXPENSE',
     expense
 });
@@ -30,3 +30,22 @@ export const editExpense = (id, updates) => ({
     id,
     updates
 });
+
+//SET_EXPENSES
+export const setExpenses = (expenses) => ({
+    type: 'SET_EXPENSES',
+    expenses
+})
+
+export const startSetExpenses = () => {
+    return (dispatch) => {
+        const expenses = [];
+        return database.ref('expenses').once('value', (snapshot) => {
+            snapshot.forEach(childSnapshot => {
+                const expense = {id: childSnapshot.key, ...childSnapshot.val()};
+                expenses.push(expense);
+            });
+            dispatch(setExpenses(expenses));
+        });
+    }
+}
