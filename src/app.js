@@ -19,9 +19,7 @@ const jsx = (
 let hasRendered = false;
 const renderApp = () => {
     if (!hasRendered) {
-        store.dispatch(startSetExpenses()).then(() => {
-            ReactDOM.render(jsx, document.getElementById('root'));
-        });
+        ReactDOM.render(jsx, document.getElementById('root'));
         hasRendered = true;
     }
 }
