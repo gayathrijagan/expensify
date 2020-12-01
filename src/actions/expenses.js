@@ -14,7 +14,6 @@ export const startAddExpense = (expenseData = {}) => {
         database.ref(`users/${uid}/expenses`)
             .push(expense)
             .then(ref => {
-                console.log(ref);
                 dispatch(addExpense({id: ref.key, ...expense}));
             });
     }

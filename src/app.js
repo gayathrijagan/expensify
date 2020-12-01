@@ -5,6 +5,7 @@ import AppRouter, {history} from './routers/AppRouter';
 import configureStore from '../src/store/configureStore';
 import {startSetExpenses} from '../src/actions/expenses';
 import {login, logout} from '../src/actions/auth';
+import Loader from './components/Loader';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import {firebase} from './firebase/firebase';
@@ -25,7 +26,7 @@ const renderApp = () => {
 }
 
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+ReactDOM.render(<Loader />, document.getElementById('root'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
